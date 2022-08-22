@@ -1,21 +1,66 @@
 let liftBtns = document.querySelectorAll(".call-lift-btn");
 let addFloorBtn = document.querySelector(".add-floor-btn");
 let addLiftBtn = document.querySelector(".add-lift-btn");
-let liftContainer = document.querySelector(".lift-container");
 let floorContainer = document.querySelector(".floors");
-let floor = document.querySelector(".floor");
-let leftDoor = document.querySelector(".left-door");
-let rightDoor = document.querySelector(".right-door");
+let liftContainer = document.querySelectorAll(".lift-container");
+let floor = document.querySelectorAll(".floor");
+let leftDoor = document.querySelectorAll(".left-door");
+let rightDoor = document.querySelectorAll(".right-door");
 
-// const lifts = Array.from(liftContainer, (el) => ({
-//   htmlEl: el,
-//   currentFloor: 0,
-//   busy: false,
-// }));
+// creating lifts
+const lifts = Array.from(liftContainer, (el) => ({
+  htmlEl: el,
+  busy: false,
+  currentFloor: 0,
+}));
 
-// function getLifts() {
-//   return lifts;
-// }
+//getting lifts
+function getLifts() {
+  return lifts;
+}
+
+//get max width of viewport and render the max no. lifts according to that
+const getMaxLifts = () => {
+  const viewportWidth = document.getElementsByTagName("body")[0].clientWidth;
+  return Math.floor((viewportWidth - 100) / 150);
+};
+
+// adding lift
+function addLift() {
+  floor[floor.length - 1].append(getLiftEl());
+  liftContainer = document.querySelectorAll(".lift-container");
+  lifts.push({
+    htmlEl: liftContainer[liftContainer.length - 1],
+    busy: false,
+    currentFloor: 0,
+  });
+
+  leftDoor = document.querySelectorAll(".left-door");
+  rightDoor = document.querySelectorAll(".right-door");
+
+  if (lifts.length >= getMaxLifts()) {
+    addLiftBtn.disabled = true;
+    addLiftBtn.textContent = "Max lifts reached";
+    addLiftBtn.style.cursor = "not-allowed";
+    return;
+  }
+}
+
+// getting a singe lift element
+function getLiftEl() {
+  const liftDistance = (lifts.length + 1) * 150;
+  const liftEl = document.createElement("div");
+  liftEl.classList.add("lift-container");
+  liftEl.style.position = "absolute";
+  liftEl.style.left = `${liftDistance}px`;
+
+  liftEl.innerHTML += `
+    <div class="left-door"></div>
+    <div class="right-door"></div>
+  `;
+
+  return liftEl;
+}
 
 // adding floor
 function addFloor() {
@@ -44,6 +89,7 @@ function getFloorEl() {
 
 function masterCalls() {
   addFloorBtn.addEventListener("click", addFloor);
+  addLiftBtn.addEventListener("click", addLift);
 }
 
 masterCalls();

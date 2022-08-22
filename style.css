@@ -13,8 +13,8 @@
   --liftBtnBgColor: #212720;
   --floorBgColor: rgb(233, 233, 193);
   --liftBgColor: rgb(164, 189, 155);
-  --leftRightDoor: #789970;
-  --leftRightDoorBorder: #313530;
+  --leftRightDoor: #333532;
+  --leftRightDoorBorder: #c0f5b3;
 }
 
 body {
@@ -88,6 +88,10 @@ header {
 
 .close-lift-btn:hover {
   background: #9b0000;
+}
+
+.floors {
+  position: relative;
 }
 
 .lift-container {
