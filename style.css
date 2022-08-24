@@ -95,7 +95,6 @@ header {
 }
 
 .lift-container {
-  position: absolute;
   width: 70px;
   height: 100px;
   left: 30px;
