@@ -65,11 +65,15 @@ function getLiftEl() {
 // adding floor
 function addFloor() {
   floorContainer.prepend(getFloorEl());
+  floor = document.querySelectorAll(".floor");
+  liftBtns = document.querySelectorAll(".call-lift-btn");
 }
 
 //getting floor elements
 function getFloorEl() {
-  let newLiftNum = floor.length + 1;
+  console.log(`floor.length:`, floor.length);
+  let newLiftNum = floor.length;
+  console.log(`newLiftNum:`, newLiftNum);
 
   const floorEl = document.createElement("div");
   floorEl.classList.add("floor");

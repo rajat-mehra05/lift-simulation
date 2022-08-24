@@ -52,6 +52,10 @@ header {
   background: #12959e;
 }
 
+.floors {
+  position: relative;
+}
+
 .floor {
   border-bottom: 1px solid #000;
   display: flex;
@@ -90,17 +94,13 @@ header {
   background: #9b0000;
 }
 
-.floors {
-  position: relative;
-}
-
 .lift-container {
-  position: relative;
+  position: absolute;
   width: 70px;
   height: 100px;
   left: 30px;
-  top: 50px;
   z-index: 3;
+  position: relative;
   overflow: hidden;
   background: var(--liftBgColor);
 }
