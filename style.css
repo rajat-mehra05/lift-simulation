@@ -15,6 +15,7 @@
   --liftBgColor: rgb(164, 189, 155);
   --leftRightDoor: #333532;
   --leftRightDoorBorder: #c0f5b3;
+  --floorBorder: rgb(7, 43, 31);
 }
 
 body {
@@ -27,17 +28,21 @@ header {
   flex-direction: column;
   text-align: center;
   padding: 0.5rem 1rem;
-  border: 3px solid var(--headerBottomBorder);
+  border: 1px solid var(--headerBottomBorder);
+  margin-bottom: 2rem;
 }
 
 .lift-container {
   width: 70px;
-  height: 100px;
+  height: 120px;
   left: 30px;
-  background: var(--liftBgColor);
+  background-color: var(--liftBgColor);
   position: relative;
   z-index: 3;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .left-door {
@@ -143,10 +148,9 @@ header {
 }
 
 .floor {
-  border-bottom: 1px solid #000;
+  border-bottom: 1.5px solid var(--floorBorder);
   display: flex;
-  height: 100px;
-  padding: 10px 0px;
+  height: 120px;
 }
 
 /* mobile responsive */
