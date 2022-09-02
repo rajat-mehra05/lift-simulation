@@ -28,6 +28,7 @@ header {
   justify-content: space-between;
   padding: 0.5rem 1rem;
   border-bottom: 3px solid var(--headerBottomBorder);
+  margin-bottom: 4rem;
 }
 
 .add-btns {
@@ -59,7 +60,7 @@ header {
 .floor {
   border-bottom: 1px solid #000;
   display: flex;
-  height: 100px;
+  height: 99px;
 }
 
 .lift-btns {
